@@ -75,11 +75,11 @@ const Contact = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <Label htmlFor="fname">First Name</Label>
-              <Input id="fname" />
+              <Input id="fname" placeholder="John" />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="lname">Last Name</Label>
-              <Input id="lname" />
+              <Input id="lname" placeholder="Wick" />
             </div>
           </div>
           <div className="grid gap-2">
