@@ -1,0 +1,53 @@
+Nav Menu
+
+ {/* <NavigationMenu className="hidden md:block">
+        <NavigationMenuList className="gap-6">
+          {routes.map((route) => (
+            <NavigationMenuItem key={route.title}>
+              <NavigationMenuTrigger
+                onClick={() => setPath(route.href)}
+                className={cn({
+                  "dark:text-white": path === route.href,
+                  "dark:text-white/40": path !== route.href,
+                  "font-normal": true,
+                  "text-xl": true,
+                })}
+              >
+                {route.title}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                {route.title === "Projects" && (
+                  <ul className="grid w-[400px] gap-3 p-4 md:grid-row-2">
+                    {projects.map((project) => (
+                      <ListItem
+                        key={project.title}
+                        title={project.title}
+                        href={project.href}
+                      >
+                        {project.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                )}
+                {route.title === "Contact" && (
+                  <div className="p-4">
+                    <p className="text-white">
+                      Email:
+                      <a
+                        href="mailto:
+                      18animesh@gmail.com"
+                        target="_blank"
+                        rel="noreferrer
+                      noopener"
+                      >
+                        18animesh@gmail.com
+                      </a>
+                    </p>
+                    <p className="text-white">Phone: +91 1234567890</p>
+                  </div>
+                )}
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu> */}
