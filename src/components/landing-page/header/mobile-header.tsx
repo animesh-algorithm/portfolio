@@ -9,10 +9,9 @@ const MobileHeader = () => {
   return (
     <header className="p-4 flex justify-center items-center">
       <Link href={"/"} className="flex gap-2 items-center w-full justify-start">
-        <Image src="/icon.jpeg" alt="Cypress Logo" width={25} height={25} />
+        <Image src="/icon.png" alt="Cypress Logo" width={25} height={25} />
         <span className="font-semibold dark:text-white">Animesh.</span>
       </Link>
-      <AiChatButton />
       <DownloadResumeButton />
     </header>
   );

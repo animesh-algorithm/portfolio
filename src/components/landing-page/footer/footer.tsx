@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="flex flex-col md:flex-row items-center justify-start w-full h-36 md:h-[100px] bg-brand-dark mt-[100px] sticky">
       {/* Logo */}
       <div className="flex flex-row items-center justify-center w-full h-24 mt-5 md:mt-0">
-        <Image src="/icon.jpeg" alt="Animesh Sharma" width="40" height="40" />
+        <Image src="/icon.png" alt="Animesh Sharma" width="40" height="40" />
       </div>
       {/* Copyright */}
       <div className="flex flex-row items-center justify-center w-full h-24">

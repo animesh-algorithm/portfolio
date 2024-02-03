@@ -3,6 +3,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "@/lib/providers/next-theme-providers";
+import AiChatButton from "@/components/ai-chat/ai-chat-button";
 
 const font = DM_Sans({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body className={twMerge("bg-background", font.className)}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
+          <AiChatButton />
         </ThemeProvider>
       </body>
     </html>

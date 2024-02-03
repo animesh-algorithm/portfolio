@@ -7,6 +7,7 @@ import { Card } from "../ui/card";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { Input } from "../ui/input";
+import Image from "next/image";
 
 interface AIChatBoxProps {
   open: boolean;
@@ -44,14 +45,11 @@ const AIChatBox = ({ open, onClose }: AIChatBoxProps) => {
   return (
     <div
       className={cn(
-        "bottom-0 right-0 z-50 w-full max-w-[500px] p-1 xl:right-36",
+        "bottom-12 right-0 z-50 w-full max-w-[500px] p-1 md:right-[60px]",
         open ? "fixed" : "hidden"
       )}
     >
-      <Button variant="ghost" onClick={onClose} className="mb-1 ms-auto block">
-        <XCircle size={30} className="rounded-full bg-background" />
-      </Button>
-      <Card className="flex h-[600px] flex-col rounded border bg-background shadow-xl">
+      <Card className="flex h-[585px] flex-col rounded border bg-background shadow-xl">
         <div className="mt-3 h-full overflow-y-auto px-3" ref={scrollRef}>
           {messages.map((message) => (
             <ChatMessage key={message.id} message={message} />
@@ -76,7 +74,7 @@ const AIChatBox = ({ open, onClose }: AIChatBoxProps) => {
           )}
           {!error && messages.length === 0 && (
             <div className="flex flex-col h-full items-center justify-center gap-3 text-center mx-8">
-              <Bot size={28} />
+              <Image src="/icon.png" alt="AI Chat" width={200} height={200} />
               <p className="text-washed-purple-100">
                 Send a message to start the AI chat!
               </p>
@@ -92,11 +90,15 @@ const AIChatBox = ({ open, onClose }: AIChatBoxProps) => {
           )}
         </div>
         <form onSubmit={handleSubmit} className="m-3 flex gap-1">
-          <Button variant="ghost" onClick={() => setMessages([])}>
+          <Button
+            variant="ghost"
+            onClick={() => setMessages([])}
+            type="button"
+            title="Clear Chat"
+          >
             <Trash size={20} />
           </Button>
           <Input
-            autoFocus={true}
             value={input}
             onChange={handleInputChange}
             placeholder="Type a message..."
@@ -107,7 +109,7 @@ const AIChatBox = ({ open, onClose }: AIChatBoxProps) => {
             variant="ghost"
             type="submit"
             className="disabled:opacity-50"
-            disabled={isLoading || input.length === 0}
+            disabled={input.length === 0}
             title="Submit message"
           >
             <SendHorizontal size={20} />
@@ -132,7 +134,15 @@ function ChatMessage({ message: { role, content } }: ChatMessageProps) {
         isAIMessage ? "me-5 justify-start" : "ms-5 justify-end"
       )}
     >
-      {isAIMessage && <Bot className="mr-2 flex-none" />}
+      {isAIMessage && (
+        <Image
+          src="/icon.png"
+          alt="AI Chat"
+          width={40}
+          height={40}
+          className="mr-2 flex-none"
+        />
+      )}
       <div
         className={cn(
           "rounded-md border px-3 py-2",
