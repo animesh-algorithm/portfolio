@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 import DownloadResumeButton from "./download-resume";
+import AiChatButton from "@/components/ai-chat/ai-chat-button";
 
 const MobileHeader = () => {
   return (
@@ -11,7 +12,7 @@ const MobileHeader = () => {
         <Image src="/icon.jpeg" alt="Cypress Logo" width={25} height={25} />
         <span className="font-semibold dark:text-white">Animesh.</span>
       </Link>
-
+      <AiChatButton />
       <DownloadResumeButton />
     </header>
   );

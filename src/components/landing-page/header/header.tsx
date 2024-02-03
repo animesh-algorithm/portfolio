@@ -8,6 +8,7 @@ import {
   SecondaryTabsList,
 } from "../../ui/tabs";
 import DownloadResumeButton from "./download-resume";
+import AiChatButton from "@/components/ai-chat/ai-chat-button";
 
 const routes = [
   { title: "About", id: "about", href: "#about" },
@@ -40,7 +41,7 @@ const Header = () => {
           </TabsTrigger>
         ))}
       </TabsList>
-
+      <AiChatButton />
       <DownloadResumeButton />
     </header>
   );
