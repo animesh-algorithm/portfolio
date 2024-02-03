@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   description:
     "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
   icons: {
-    icon: "/icon.jpeg",
-    apple: "/icon.jpeg",
-    shortcut: "/icon.jpeg",
+    icon: "https://dev.animesharma3.com/icon.jpeg",
+    apple: "https://dev.animesharma3.com/icon.jpeg",
+    shortcut: "https://dev.animesharma3.com/icon.jpeg",
   },
   twitter: {
     card: "summary_large_image",
@@ -22,7 +22,10 @@ export const metadata: Metadata = {
     creator: "@animesh-algorithm",
     description:
       "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
-    images: ["/icon.jpeg", "/favicon.ico"],
+    images: [
+      "https://dev.animesharma3.com/icon.jpeg",
+      "https://dev.animesharma3.com/favicon.ico",
+    ],
   },
   openGraph: {
     type: "website",
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
       "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
     images: [
       {
-        url: "/icon.jpeg",
+        url: "https://dev.animesharma3.com/icon.jpeg",
         width: 800,
         height: 600,
         alt: "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
