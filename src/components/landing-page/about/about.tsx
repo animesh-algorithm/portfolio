@@ -1,8 +1,8 @@
 import React from "react";
 import AboutSVG from "./about-svg";
-import TitleSection from "./title-section";
-import { Button } from "../ui/button";
-import { TabsTrigger } from "../ui/tabs";
+import TitleSection from "../../global/title-section";
+import { Button } from "../../ui/button";
+import { TabsTrigger } from "../../ui/tabs";
 import { SocialIcon } from "react-social-icons";
 import Link from "next/link";
 
@@ -17,7 +17,7 @@ const About = () => {
         />
         <br className="sm:flex md:hidden" />
 
-        <p className="text-md dark:text-washed-purple-600 text-center">
+        <p className="text-md dark:text-washed-purple-600 text-justify">
           As a software engineer and data scientist, I excel in coding and
           problem-solving. Known for quick learning and teamwork, I thrive in
           collaborative environments. Specializing in web, mobile, and AI
@@ -82,14 +82,14 @@ const About = () => {
         <br className="sm:flex md:hidden" />
 
         <Button
-          variant="default"
+          // variant="default"
           className="w-full rounded-[10px] p-6 text-2xl"
         >
           <Link href="#contact">Interested? Let's talk!</Link>
         </Button>
       </div>
 
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex items-center justify-center">
         <AboutSVG />
         <div className="bottom-0 top-[50%] bg-gradient-to-t dark:from-background left-1/2 right-0 absolute z-10"></div>
       </div>

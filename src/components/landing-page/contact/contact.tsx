@@ -6,20 +6,20 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ui/card";
-import { Button } from "../ui/button";
-import { Icons } from "../icons";
+} from "../../ui/card";
+import { Button } from "../../ui/button";
+import { Icons } from "../../icons";
 import { SocialIcon } from "react-social-icons";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
+import { Label } from "../../ui/label";
+import { Input } from "../../ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { Textarea } from "../ui/textarea";
+} from "../../ui/select";
+import { Textarea } from "../../ui/textarea";
 
 const Contact = () => {
   return (
@@ -27,10 +27,12 @@ const Contact = () => {
       id="contact"
       className="overflow-hidden px-4 sm:px-6 mt-10 sm:flex sm:flex-col gap-4 md:justify-center md:items-center"
     >
-      <Card className="bg-background">
+      <Card className="bg-background text-washed-purple-300">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Get in touch</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-2xl text-washed-purple-300">
+            Get in touch
+          </CardTitle>
+          <CardDescription className="text-washed-purple-600 pl-0">
             This contact form is a no-go, but the one I'll whip up for you will
             work for sure.
           </CardDescription>
@@ -67,7 +69,7 @@ const Contact = () => {
               <span className="w-full border-t" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">
+              <span className="bg-background px-2 text-washed-purple-600/80">
                 Or continue with
               </span>
             </div>

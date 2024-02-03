@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { FileDown } from "lucide-react";
 
 const DownloadResumeButton = () => {
@@ -12,15 +12,16 @@ const DownloadResumeButton = () => {
   return (
     <aside className="flex gap-2 justify-end w-full">
       <Button
-        variant="btn-primary"
-        className="whitespace-nowrap"
+        className="whitespace-nowrap dark:bg-gradient-to-r
+          dark:from-brand-primaryBlue
+          dark:to-brand-primaryPurple"
         onClick={downloadResume}
       >
         <div
           className="text-washed-blue-50 flex items-center gap-1"
           style={{ fontSize: "1rem" }}
         >
-          <FileDown />
+          {/* <FileDown /> */}
           Resume
         </div>
       </Button>
