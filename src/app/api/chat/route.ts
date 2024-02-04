@@ -17,9 +17,7 @@ import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createHistoryAwareRetriever } from "langchain/chains/history_aware_retriever";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";
 
 export async function POST(req: Request) {
   try {
