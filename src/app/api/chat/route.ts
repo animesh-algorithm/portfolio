@@ -17,6 +17,8 @@ import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createHistoryAwareRetriever } from "langchain/chains/history_aware_retriever";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 
+export const maxDuration = 30;
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
