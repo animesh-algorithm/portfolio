@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   description:
     "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
   icons: {
-    icon: "https://dev.animesharma3.com/icon.jpeg",
-    apple: "https://dev.animesharma3.com/icon.jpeg",
-    shortcut: "https://dev.animesharma3.com/icon.jpeg",
+    icon: "https://animesh-sharma.vercel.app/icon.jpeg",
+    apple: "https://animesh-sharma.vercel.app/icon.jpeg",
+    shortcut: "https://animesh-sharma.vercel.app/icon.jpeg",
   },
   twitter: {
     card: "summary_large_image",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     description:
       "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
     images: [
-      "https://dev.animesharma3.com/icon.jpeg",
-      "https://dev.animesharma3.com/favicon.ico",
+      "https://animesh-sharma.vercel.app/icon.jpeg",
+      "https://animesh-sharma.vercel.app/favicon.ico",
     ],
   },
   openGraph: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
     images: [
       {
-        url: "https://dev.animesharma3.com/icon.jpeg",
+        url: "https://animesh-sharma.vercel.app/icon.jpeg",
         width: 800,
         height: 600,
         alt: "Animesh Sharma • Software Developer, Web & Mobile • Data Scientist • Portfolio",
