@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate && next build",
+    "generate": "npx tsx -r dotenv/config ./scripts/generate.ts",
     "start": "next start",
     "lint": "next lint"
   },
@@ -25,11 +26,13 @@
     "ai": "^2.2.33",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dotenv": "^16.4.1",
     "langchain": "^0.1.12",
     "lucide-react": "^0.321.0",
     "next": "14.1.0",
     "next-themes": "^0.2.1",
     "openai": "^4.26.0",
+    "pdf-parse": "^1.1.1",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
