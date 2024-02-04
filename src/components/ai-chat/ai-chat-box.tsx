@@ -68,7 +68,8 @@ const AIChatBox = ({ open, onClose }: AIChatBoxProps) => {
               message={{
                 id: "error",
                 role: "assistant",
-                content: "Something went wrong. Please try again later!",
+                content:
+                  "This error occured because currently I'm on free teir of Netlify and it has some limitations.",
               }}
             />
           )}
