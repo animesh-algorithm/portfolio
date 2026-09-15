@@ -8,6 +8,23 @@ export function ArrowUpRight({ className }: IconProps) {
   );
 }
 
+export function Demo({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="7.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="m8.4 6.9 4.4 3.1-4.4 3.1V6.9Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function GitHub({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M10 2.25a7.75 7.75 0 0 0-2.45 15.1c.39.07.53-.17.53-.37v-1.5c-2.15.47-2.6-.91-2.6-.91-.35-.9-.86-1.14-.86-1.14-.7-.48.05-.47.05-.47.78.05 1.19.8 1.19.8.69 1.18 1.81.84 2.25.64.07-.5.27-.84.49-1.04-1.72-.2-3.52-.86-3.52-3.83 0-.84.3-1.53.8-2.07-.08-.2-.35-.98.08-2.04 0 0 .65-.21 2.13.79A7.4 7.4 0 0 1 10 6c.66 0 1.31.09 1.92.26 1.48-1 2.13-.79 2.13-.79.43 1.06.16 1.84.08 2.04.5.54.8 1.23.8 2.07 0 2.98-1.81 3.63-3.53 3.82.28.24.52.71.52 1.44v2.14c0 .2.14.44.53.37A7.75 7.75 0 0 0 10 2.25Z" />
+    </svg>
+  );
+}
+
 export function Spark({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true">

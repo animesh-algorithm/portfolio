@@ -18,6 +18,7 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <a href={item.href} key={item.href}>{item.label}</a>
           ))}
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé</a>
         </nav>
         <a className="header-contact" href="#contact">
           Say hello <ArrowUpRight />
