@@ -1,8 +1,9 @@
 import { ArrowUpRight } from "./icons";
 
 type ProjectShowcaseProps = {
-  number: string;
-  title: string;
+  label: string;
+  linkLabel: string;
+  title: React.ReactNode;
   description: string;
   meta: string;
   tone: "coral" | "violet" | "blue" | "yellow";
@@ -10,16 +11,16 @@ type ProjectShowcaseProps = {
   children: React.ReactNode;
 };
 
-export function ProjectShowcase({ number, title, description, meta, tone, featured, children }: ProjectShowcaseProps) {
+export function ProjectShowcase({ label, linkLabel, title, description, meta, tone, featured, children }: ProjectShowcaseProps) {
   return (
     <article className={`project project-${tone}${featured ? " project-featured" : ""}`}>
-      <a className="project-visual-link" href="#contact" aria-label={`Read about ${title}`}>
+      <a className="project-visual-link" href="#contact" aria-label={`Read about ${linkLabel}`}>
         {children}
         <span className="project-open"><ArrowUpRight /></span>
       </a>
       <div className="project-copy">
-        <span className="project-number">{number}</span>
-        <div>
+        <div className="project-story">
+          <span className="project-label">{label}</span>
           <h3>{title}</h3>
           <p>{description}</p>
         </div>

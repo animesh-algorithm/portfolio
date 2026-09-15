@@ -5,15 +5,30 @@ import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 
 const experience = [
-  ["Now", "Building thoughtful products", "Independent"],
-  ["2024 — 25", "Product engineering", "Somewhere interesting"],
-  ["2022 — 24", "Software engineering", "A good team"],
+  {
+    period: "Now",
+    role: "Chief of Staff",
+    company: "Gradly",
+    description: "Turns out if you keep solving problems outside your job description, eventually they change the job description.",
+  },
+  {
+    period: "2023 — 25",
+    role: "Software Engineer → Product Lead",
+    company: "Gradly",
+    description: "Built products, internal systems, AI, claims infrastructure, integrations, and eventually the engineering team itself.",
+  },
+  {
+    period: "2021 — 23",
+    role: "Founding Engineer",
+    company: "Gradly",
+    description: "Started as a contractor writing scripts to kill manual work. Kept going until there wasn’t much of the company I hadn’t touched.",
+  },
 ];
 
 const notes = [
-  ["Designing for the nervous click", "A few notes on making complex flows feel calm.", "4 min"],
-  ["What prototypes are actually for", "Learning faster without mistaking polish for proof.", "6 min"],
-  ["Useful automation, quietly done", "Small systems that give attention back.", "3 min"],
+  ["Context is something you acquire.", "“I don’t have enough context” is useful for about five minutes.", "4 min"],
+  ["Prototype before architecture.", "Walk ten steps and check the map before walking a kilometre in the wrong direction.", "5 min"],
+  ["I don’t automate tasks. I automate roles.", "The interesting part of automation starts when you stop thinking in individual tasks.", "6 min"],
 ];
 
 export default function Home() {
@@ -22,13 +37,13 @@ export default function Home() {
       <SiteHeader />
 
       <section className="hero shell" aria-labelledby="hero-title">
-        <div className="hero-status"><span /> Available for good conversations</div>
+        <div className="hero-status"><span /> Available for interesting problems</div>
         <h1 id="hero-title">
-          I build digital things <br />
-          with <em>care</em> and curiosity.
+          I figure things out. <br />
+          Then I <em>build</em> them.
         </h1>
         <div className="hero-bottom">
-          <p>Product-minded engineer working across software, AI, and the small details that make things feel right.</p>
+          <p>Engineer, product person, automation obsessive, and professional “give it to Animesh, he’ll figure it out” person.</p>
           <a className="circle-link" href="#work" aria-label="See selected work">↓</a>
         </div>
         <Spark className="hero-spark" />
@@ -37,20 +52,20 @@ export default function Home() {
 
       <section className="work-section chapter chapter-paper-deep scallop-top" id="work" aria-labelledby="work-title">
         <div className="shell work-inner">
-          <SectionHeading eyebrow="01 / Selected work" title="A few things I’ve made." aside="Selected projects, experiments, and useful systems." />
+          <SectionHeading eyebrow="01 / Selected work" title="Things I’m glad exist." aside="Some shipped at work. Some started because I got annoyed enough to build them." />
           <div className="project-list">
-          <ProjectShowcase number="01" title="A clearer path through complexity" description="A guided product for a process that usually feels anything but guided." meta="Product · Engineering" tone="coral" featured>
+          <ProjectShowcase label="Project 01 — VisaFile" linkLabel="VisaFile" title="DS-160, minus the suffering." description="The DS-160 can take hours of form-filling. VisaFile turns your answers into an automated application run, stopping only when it actually needs you." meta="Automation · Product · Engineering" tone="coral" featured>
             <VisaFlowVisual />
           </ProjectShowcase>
           <div className="project-pair">
-            <ProjectShowcase number="02" title="An AI workspace for making" description="Exploring a calmer interface for human and machine collaboration." meta="AI · Product" tone="violet">
+            <ProjectShowcase label="Project 02 — AI Insurance Concierge" linkLabel="AI Insurance Concierge" title="Support that knows what’s going on." description="An AI support system that understands the customer, their journey, the insurance plan, and the conversation before drafting a reply." meta="AI · RAG · Product" tone="violet">
               <StudioVisual />
             </ProjectShowcase>
-            <ProjectShowcase number="03" title="Operations without the busywork" description="Turning repetitive data work into a dependable flow." meta="Automation · Systems" tone="blue">
+            <ProjectShowcase label="Project 03 — Gradly Operations" linkLabel="Gradly Operations" title={<>I don’t automate tasks.<br />I automate roles.</>} description="What started as a few scripts became the operating infrastructure behind sales, policies, payments, claims, insurance data exchange, and customer operations." meta="Automation · Systems · Engineering" tone="blue">
               <DataVisual />
             </ProjectShowcase>
           </div>
-          <ProjectShowcase number="04" title="Tiny tools & experiments" description="A growing collection of useful, strange, and occasionally delightful ideas." meta="Ongoing · Playground" tone="yellow">
+          <ProjectShowcase label="Project 04 — Experiments" linkLabel="Experiments" title={<>Things I built because<br />“someone should make this.”</>} description="Small tools, automations, experiments, and occasionally questionable ideas that made it far enough to become software." meta="Ongoing · Playground" tone="yellow">
             <PlaygroundVisual />
           </ProjectShowcase>
           </div>
@@ -62,29 +77,32 @@ export default function Home() {
           <div className="about-mark"><Asterisk /></div>
           <div className="about-copy">
             <p className="eyebrow">02 / About</p>
-            <h2 id="about-title">Engineer by practice.<br /><em>Product person</em> by instinct.</h2>
+            <h2 id="about-title">Engineer by trade.<br /><em>Problem solver</em> by necessity.</h2>
             <div className="about-body">
-              <p>I like ambiguous problems, useful systems, and interfaces that don’t need a manual.</p>
-              <p>This is placeholder copy for now—but the point of view is real.</p>
+              <p>I’m unusually comfortable when the problem is ambiguous, the documentation is bad, nobody quite knows what to do, and it still needs to ship Friday.</p>
+              <p>I started my career scripting away repetitive work. That turned into building internal tools, then customer products, then entire systems, then leading teams.<br /><br />I kept picking up problems until my job title had to catch up.</p>
             </div>
           </div>
           <aside className="about-side">
             <span>BASED IN</span><strong>India ↗</strong>
-            <span>FOCUSED ON</span><strong>Products, AI, automation</strong>
+            <span>GOOD AT</span><strong>Products, AI, automation, figuring shit out</strong>
           </aside>
         </div>
       </section>
 
       <section className="experience-section chapter chapter-butter scallop-top" aria-labelledby="experience-title">
         <div className="shell">
-          <SectionHeading eyebrow="03 / Experience" title="Where I’ve spent my time." />
+          <SectionHeading eyebrow="03 / Experience" title={<>Where I got good at<br />figuring shit out.</>} />
           <div className="experience-list">
-            {experience.map(([year, role, company]) => (
-              <div className="experience-row" key={year}>
-                <span>{year}</span><h3>{role}</h3><p>{company}</p><i>↗</i>
+            {experience.map(({ period, role, company, description }) => (
+              <div className="experience-row" key={period}>
+                <span className="experience-period">{period}</span>
+                <div className="experience-role"><h3>{role}</h3><p>{company}</p></div>
+                <p className="experience-description">{description}</p>
               </div>
             ))}
           </div>
+          <div className="experience-mark" aria-hidden="true">✦</div>
         </div>
       </section>
 
@@ -93,19 +111,19 @@ export default function Home() {
           <div className="now-orbit"><span>✦</span><i /><i /></div>
           <div className="now-copy">
             <p className="eyebrow">04 / Right now</p>
-            <h2 id="now-title">Currently building,<br />learning & following<br /><em>the interesting thread.</em></h2>
+            <h2 id="now-title">Currently building,<br />learning & following<br /><em>whatever looks useful.</em></h2>
           </div>
           <ul>
-            <li><span>01</span> Human-in-the-loop AI</li>
-            <li><span>02</span> Calm software</li>
-            <li><span>03</span> Tools with taste</li>
+            <li><span>01</span> Automating things people still do manually</li>
+            <li><span>02</span> Human-in-the-loop AI that actually works</li>
+            <li><span>03</span> VisaFile</li>
           </ul>
         </div>
       </section>
 
       <section className="notes-section chapter chapter-paper scallop-top" id="notes" aria-labelledby="notes-title">
         <div className="shell notes-inner">
-          <SectionHeading eyebrow="05 / Notes" title="Thinking in public, occasionally." aside="Short notes on building, products, and the spaces between." />
+          <SectionHeading eyebrow="05 / Notes" title="Opinions, loosely organized." aside="Things I’ve learned from building software, breaking software, fixing operations, talking to users, and occasionally doing things the hard way." />
           <div className="notes-list">
           {notes.map(([title, description, time], index) => (
             <a className="note-row" href="#contact" key={title}>
@@ -123,12 +141,12 @@ export default function Home() {
       <footer className="contact-section chapter chapter-blue scallop-top" id="contact">
         <div className="shell contact-inner">
           <p className="eyebrow">06 / Say hello</p>
-          <h2>Have an idea, a question,<br />or just want to <em>compare notes?</em></h2>
-          <a className="contact-button" href="mailto:hello@example.com">hello@example.com <ArrowUpRight /></a>
+          <h2>Got a hard problem?<br /><em>Even better if you’re<br />not sure how to solve it.</em></h2>
+          <a className="contact-button" href="mailto:hello.animeshsharma@gmail.com">hello.animeshsharma@gmail.com <ArrowUpRight /></a>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Animesh</span>
             <div><a href="#top">LinkedIn</a><a href="#top">GitHub</a><a href="#top">X / Twitter</a></div>
-            <a className="consulting-link" href="#top">Looking for professional project help? <span>Visit the studio ↗</span></a>
+            <a className="consulting-link" href="#top">Looking for professional project help? <span>Work with me ↗</span></a>
           </div>
         </div>
       </footer>

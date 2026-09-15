@@ -24,25 +24,25 @@ export function VisaFlowVisual() {
 
 export function StudioVisual() {
   return (
-    <div className="visual visual-studio" aria-label="Abstract interface preview for an AI workspace" role="img">
+    <div className="visual visual-studio" aria-label="Abstract interface preview for the AI insurance concierge" role="img">
       <div className="studio-orbit orbit-one" />
       <div className="studio-orbit orbit-two" />
       <div className="studio-center">
         <span className="studio-spark">✦</span>
-        <strong>Think, make,<br />refine.</strong>
+        <strong>Context in,<br />reply out.</strong>
       </div>
-      <div className="floating-chip chip-one"><i /> Research</div>
-      <div className="floating-chip chip-two"><i /> Prototype</div>
-      <div className="floating-chip chip-three"><i /> Ship</div>
+      <div className="floating-chip chip-one"><i /> Customer</div>
+      <div className="floating-chip chip-two"><i /> Plan</div>
+      <div className="floating-chip chip-three"><i /> Conversation</div>
       <span className="coordinate coordinate-a">12° 14′</span>
-      <span className="coordinate coordinate-b">WORKSPACE 01</span>
+      <span className="coordinate coordinate-b">CONCIERGE 01</span>
     </div>
   );
 }
 
 export function DataVisual() {
   return (
-    <div className="visual visual-data" aria-label="Abstract interface preview for a data operations product" role="img">
+    <div className="visual visual-data" aria-label="Abstract interface preview for Gradly operations infrastructure" role="img">
       <div className="data-title"><span>Weekly pulse</span><b>•••</b></div>
       <div className="data-metric"><strong>2,418</strong><span>records in motion</span></div>
       <div className="bars" aria-hidden="true">

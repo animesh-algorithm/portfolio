@@ -487,17 +487,25 @@ button {
 .project-copy {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr) auto;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
   align-items: start;
 }
-.project-number,
+.project-label,
 .project-meta {
+  display: block;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 800;
-  padding-top: 7px;
+}
+.project-story {
+  min-width: 0;
+  max-width: 760px;
+}
+.project-label {
+  margin-bottom: 18px;
+  color: var(--ink-soft);
 }
 .project-copy h3 {
   margin: 0 0 10px;
@@ -514,8 +522,10 @@ button {
   max-width: 480px;
 }
 .project-meta {
+  padding-top: 7px;
   text-align: right;
   color: var(--ink-soft);
+  white-space: nowrap;
 }
 .project-pair {
   display: grid;
@@ -527,12 +537,13 @@ button {
   margin-top: clamp(10rem, 17vw, 16rem);
 }
 .project-pair .project-copy {
-  grid-template-columns: 44px 1fr;
+  display: block;
 }
 .project-pair .project-meta {
-  grid-column: 2;
+  display: block;
   text-align: left;
-  padding-top: 0;
+  padding-top: 18px;
+  white-space: normal;
 }
 
 .visual-visa {
@@ -1015,11 +1026,12 @@ button {
   border-top: 1px solid var(--line);
 }
 .experience-row {
-  min-height: 132px;
+  min-height: 164px;
   display: grid;
-  grid-template-columns: 1.4fr 5fr 2.5fr 30px;
-  gap: 24px;
-  align-items: center;
+  grid-template-columns: 1.15fr 3.2fr 4.65fr;
+  gap: clamp(20px, 3vw, 44px);
+  align-items: start;
+  padding-block: 34px;
   border-bottom: 1px solid var(--line);
   transition:
     padding 260ms var(--ease-out),
@@ -1030,9 +1042,19 @@ button {
   background: rgba(255, 253, 248, 0.3);
 }
 .experience-row span,
-.experience-row p {
+.experience-role p,
+.experience-description {
   font-size: 12px;
   color: var(--ink-soft);
+}
+.experience-period {
+  padding-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+}
+.experience-role {
+  min-width: 0;
 }
 .experience-row h3 {
   margin: 0;
@@ -1041,12 +1063,23 @@ button {
   line-height: 1;
   letter-spacing: -0.035em;
 }
-.experience-row p {
+.experience-role p,
+.experience-description {
   margin: 0;
 }
-.experience-row i {
-  font-style: normal;
-  font-size: 18px;
+.experience-role p {
+  margin-top: 10px;
+  font-weight: 700;
+}
+.experience-description {
+  max-width: 430px;
+  line-height: 1.6;
+}
+.experience-mark {
+  width: min(100%, 1050px);
+  margin: 28px 0 0 auto;
+  color: var(--violet-deep);
+  font-size: 32px;
 }
 
 .now-section {
@@ -1191,7 +1224,7 @@ button {
   min-height: 190px;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr) 48px;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   gap: 10px 18px;
   align-content: center;
   border-bottom: 1px solid var(--line);
@@ -1226,14 +1259,17 @@ button {
   line-height: 1.45;
 }
 .note-index {
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
 }
 .note-time {
-  display: none;
+  display: block;
+  grid-column: 2;
+  grid-row: 3;
+  margin-top: 7px;
 }
 .note-arrow {
   grid-column: 3;
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
 }
 .note-arrow {
   width: 42px;
@@ -1415,7 +1451,7 @@ button {
     font-size: 9px;
   }
   .hero h1 {
-    font-size: clamp(3.45rem, 16vw, 5.5rem);
+    font-size: clamp(3.2rem, 13vw, 4.6rem);
     line-height: 0.9;
     letter-spacing: -0.075em;
   }
@@ -1473,14 +1509,17 @@ button {
   }
   .project-copy,
   .project-pair .project-copy {
-    grid-template-columns: 38px 1fr;
-    gap: 12px;
+    display: block;
   }
   .project-meta,
   .project-pair .project-meta {
-    grid-column: 2;
     text-align: left;
-    padding-top: 5px;
+    padding-top: 18px;
+    white-space: normal;
+  }
+  .project-label {
+    margin-bottom: 14px;
+    line-height: 1.45;
   }
   .project-copy p {
     font-size: 13px;
@@ -1545,20 +1584,24 @@ button {
     margin-top: 3rem;
   }
   .experience-row {
-    min-height: 125px;
-    grid-template-columns: 1fr 25px;
-    gap: 5px 15px;
-    padding-block: 20px;
+    min-height: 0;
+    display: block;
+    padding-block: 28px;
   }
-  .experience-row span,
-  .experience-row h3,
-  .experience-row p {
-    grid-column: 1;
+  .experience-period {
+    display: block;
+    padding-top: 0;
+    margin-bottom: 18px;
   }
-  .experience-row i {
-    grid-column: 2;
-    grid-row: 1 / 4;
-    align-self: center;
+  .experience-role p {
+    margin-top: 8px;
+  }
+  .experience-description {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+  .experience-mark {
+    margin-top: 22px;
   }
   .now-section {
     min-height: auto;
@@ -1610,14 +1653,21 @@ button {
   }
   .note-arrow {
     grid-column: 3;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
   }
   .note-index {
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
   }
   .contact-inner h2 {
-    font-size: 3.4rem;
+    font-size: clamp(2.75rem, 13vw, 3.4rem);
     margin: 2rem 0 3rem;
+  }
+  .contact-button {
+    max-width: 100%;
+    gap: 10px;
+    padding-inline: 17px;
+    font-size: clamp(11px, 3.4vw, 14px);
+    overflow-wrap: anywhere;
   }
   .footer-bottom {
     min-height: 210px;

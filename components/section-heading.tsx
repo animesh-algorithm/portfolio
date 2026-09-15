@@ -1,6 +1,6 @@
 type SectionHeadingProps = {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   aside?: string;
 };
 
