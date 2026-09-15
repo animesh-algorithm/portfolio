@@ -46,8 +46,8 @@ body {
   background-color: var(--paper);
   background-image: var(--noise);
   background-position: 0 0;
-  background-size: 192px 192px;
-  background-blend-mode: soft-light;
+  background-size: 180px 180px;
+  background-blend-mode: overlay;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
@@ -74,8 +74,8 @@ button {
   background-color: var(--chapter-bg);
   background-image: var(--noise);
   background-position: 0 0;
-  background-size: 192px 192px;
-  background-blend-mode: soft-light;
+  background-size: 180px 180px;
+  background-blend-mode: overlay;
 }
 .chapter-paper {
   --chapter-bg: var(--paper);
@@ -107,8 +107,8 @@ button {
   background-color: var(--chapter-bg);
   background-image: var(--noise);
   background-position: 0 0;
-  background-size: 192px 192px;
-  background-blend-mode: soft-light;
+  background-size: 180px 180px;
+  background-blend-mode: overlay;
   -webkit-mask: var(--wave-top-mask) left top / var(--wave-width)
     var(--wave-height) repeat-x;
   mask: var(--wave-top-mask) left top / var(--wave-width) var(--wave-height)
@@ -137,8 +137,8 @@ button {
   background-color: var(--header-bg);
   background-image: var(--noise);
   background-position: 0 0;
-  background-size: 192px 192px;
-  background-blend-mode: soft-light;
+  background-size: 180px 180px;
+  background-blend-mode: overlay;
 }
 .site-header::after {
   content: "";
@@ -152,8 +152,8 @@ button {
   background-color: var(--header-bg);
   background-image: var(--noise);
   background-position: 0 0;
-  background-size: 192px 192px;
-  background-blend-mode: soft-light;
+  background-size: 180px 180px;
+  background-blend-mode: overlay;
   -webkit-mask: var(--wave-bottom-mask) left top / var(--wave-width)
     var(--wave-height) repeat-x;
   mask: var(--wave-bottom-mask) left top / var(--wave-width)
@@ -376,8 +376,8 @@ button {
   border-radius: 29px;
   background-color: var(--yellow);
   background-image: var(--noise);
-  background-size: 90px;
-  background-blend-mode: soft-light;
+  background-size: 140px;
+  background-blend-mode: overlay;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -551,8 +551,8 @@ button {
   border-radius: var(--radius-lg);
   background-color: var(--coral);
   background-image: var(--noise);
-  background-size: 120px;
-  background-blend-mode: soft-light;
+  background-size: 170px;
+  background-blend-mode: overlay;
   padding: clamp(3rem, 7vw, 6.5rem) 11%;
 }
 .window-bar {
@@ -693,8 +693,8 @@ button {
 .visual-studio {
   background-color: var(--violet-deep);
   background-image: var(--noise);
-  background-size: 110px;
-  background-blend-mode: soft-light;
+  background-size: 150px;
+  background-blend-mode: overlay;
   color: white;
 }
 .studio-orbit {
@@ -787,8 +787,8 @@ button {
   color: white;
   background-color: var(--blue-deep);
   background-image: var(--noise);
-  background-size: 110px;
-  background-blend-mode: soft-light;
+  background-size: 150px;
+  background-blend-mode: overlay;
 }
 .data-title,
 .data-footer {
@@ -860,8 +860,8 @@ button {
   border-radius: var(--radius-lg);
   background-color: var(--yellow);
   background-image: var(--noise);
-  background-size: 110px;
-  background-blend-mode: soft-light;
+  background-size: 150px;
+  background-blend-mode: overlay;
 }
 .playground-grid {
   position: absolute;
