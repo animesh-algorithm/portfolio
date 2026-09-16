@@ -1,4 +1,5 @@
-import { ArrowUpRight, Asterisk, Spark } from "@/components/icons";
+import { ArrowUpRight, Asterisk, ChatBubble, Spark } from "@/components/icons";
+import { AskAnimeshLink } from "@/components/ask-animesh";
 import { ProjectShowcase } from "@/components/project-showcase";
 import {
   ClaimsVisual,
@@ -9,26 +10,14 @@ import {
 } from "@/components/project-visuals";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
+import {
+  experience,
+  notes,
+  profile,
+  projects,
+  workCopy,
+} from "@/content/profile";
 import { connection } from "next/server";
-
-const workHeadlines = [
-  "I said I could. So I did.",
-  "Enough talk. Here’s the work.",
-  "I’d rather show you.",
-  "This is the part where I prove it.",
-] as const;
-
-const workEyebrows = [
-  "01 / Built, Not Pitched",
-  "01 / Show, Don’t Tell",
-  "01 / For the Record",
-] as const;
-
-const workDescriptions = [
-  "Some came with the job. Others were an itch I had to scratch.",
-  "Some were my job. Some became my job the moment they annoyed me enough.",
-  "Some paid the bills. Others were an itch I had to scratch.",
-] as const;
 
 function randomOption<const Options extends readonly string[]>(
   options: Options,
@@ -36,54 +25,13 @@ function randomOption<const Options extends readonly string[]>(
   return options[Math.floor(Math.random() * options.length)];
 }
 
-const experience = [
-  {
-    period: "Now",
-    role: "Chief of Staff",
-    company: "Gradly",
-    description:
-      "Turns out if you keep solving problems outside your job description, eventually they change the job description.",
-  },
-  {
-    period: "2023 — 25",
-    role: "Software Engineer → Product Lead",
-    company: "Gradly",
-    description:
-      "Built products, internal systems, AI, claims infrastructure, integrations, and eventually the engineering team itself.",
-  },
-  {
-    period: "2021 — 23",
-    role: "Founding Engineer",
-    company: "Gradly",
-    description:
-      "Started as a contractor writing scripts to kill manual work. Kept going until there wasn’t much of the company I hadn’t touched.",
-  },
-];
-
-const notes = [
-  [
-    "Context is something you acquire.",
-    "“I don’t have enough context” is useful for about five minutes.",
-    "4 min",
-  ],
-  [
-    "Prototype before architecture.",
-    "Walk ten steps and check the map before walking a kilometre in the wrong direction.",
-    "5 min",
-  ],
-  [
-    "I don’t automate tasks. I automate roles.",
-    "The interesting part of automation starts when you stop thinking in individual tasks.",
-    "6 min",
-  ],
-];
-
 export default async function Home() {
   await connection();
 
-  const workHeadline = randomOption(workHeadlines);
-  const workEyebrow = randomOption(workEyebrows);
-  const workDescription = randomOption(workDescriptions);
+  const workHeadline = randomOption(workCopy.headlines);
+  const workEyebrow = randomOption(workCopy.eyebrows);
+  const workDescription = randomOption(workCopy.descriptions);
+  const [visaFile, concierge, gradlyLinks, claims] = projects;
 
   return (
     <main id="top">
@@ -99,13 +47,18 @@ export default async function Home() {
           Then I <em>build</em> them.
         </h1>
         <div className="hero-bottom">
-          <p>
-            Engineer, product person, automation obsessive, and professional{" "}
-            <strong className="hero-quote">
-              “give it to Animesh, he’ll figure it out”
-            </strong>{" "}
-            person.
-          </p>
+          <div className="hero-intro">
+            <p>
+              Engineer, product person, automation obsessive, and professional{" "}
+              <strong className="hero-quote">
+                “give it to Animesh, he’ll figure it out”
+              </strong>{" "}
+              person.
+            </p>
+            <AskAnimeshLink className="hero-ask-link ask-cta-button">
+              <ChatBubble /> Ask me anything
+            </AskAnimeshLink>
+          </div>
           <a
             className="circle-link"
             href="#work"
@@ -136,67 +89,45 @@ export default async function Home() {
           />
           <div className="project-list">
             <ProjectShowcase
-              label="Project 01 — VisaFile"
-              linkLabel="VisaFile"
-              links={[
-                {
-                  href: "https://youtu.be/IomQnHifsFU",
-                  label: "Watch demo",
-                  icon: "demo",
-                },
-                {
-                  href: "https://github.com/animesh-algorithm/visafile",
-                  label: "GitHub",
-                  icon: "github",
-                },
-              ]}
-              title="DS-160, minus the suffering."
-              description="The DS-160 can take hours of form-filling. VisaFile turns your answers into an automated application run, stopping only when it actually needs you."
-              meta="Automation · Product · Engineering"
-              tone="coral"
-              featured
+              label={`Project 01 — ${visaFile.name}`}
+              linkLabel={visaFile.name}
+              links={visaFile.links}
+              title={visaFile.title}
+              description={visaFile.description}
+              meta={visaFile.meta}
+              tone={visaFile.tone}
+              featured={visaFile.featured}
             >
               <VisaFlowVisual />
             </ProjectShowcase>
             <div className="project-pair">
               <ProjectShowcase
-                label="Project 02 — AI Insurance Concierge"
-                linkLabel="AI Insurance Concierge"
-                links={[
-                  {
-                    href: "https://www.loom.com/share/f3c7bff788054442a555f304c29c1b6d?sid=d834c1dc-8b63-4613-a4d2-51f9302517e6",
-                    label: "Watch demo",
-                    icon: "demo",
-                  },
-                ]}
-                title="Support that knows what’s going on."
-                description="An AI support system that understands the customer, their journey, the insurance plan, and the conversation before drafting a reply."
-                meta="AI · RAG · Product"
-                tone="violet"
+                label={`Project 02 — ${concierge.name}`}
+                linkLabel={concierge.name}
+                links={concierge.links}
+                title={concierge.title}
+                description={concierge.description}
+                meta={concierge.meta}
+                tone={concierge.tone}
               >
                 <StudioVisual />
               </ProjectShowcase>
               <ProjectShowcase
-                label="Project 03 — Gradly Links"
-                linkLabel="Gradly Links"
-                title="The useful kind of short story."
-                description="An internal Rebrandly alternative with a custom Gradly domain—built in-house to manage branded short links and save the company about $400 a month."
-                meta="Internal Tool · Custom Domains · Engineering"
-                tone="blue"
+                label={`Project 03 — ${gradlyLinks.name}`}
+                linkLabel={gradlyLinks.name}
+                links={gradlyLinks.links}
+                title={gradlyLinks.title}
+                description={gradlyLinks.description}
+                meta={gradlyLinks.meta}
+                tone={gradlyLinks.tone}
               >
                 <DataVisual />
               </ProjectShowcase>
             </div>
             <ProjectShowcase
-              label="Project 04 — AI Claims Adjudication"
-              linkLabel="AI Claims Adjudication"
-              links={[
-                {
-                  href: "https://www.loom.com/share/b30c16086f2848efa91a0098af48d74c",
-                  label: "Watch demo",
-                  icon: "demo",
-                },
-              ]}
+              label={`Project 04 — ${claims.name}`}
+              linkLabel={claims.name}
+              links={claims.links}
               title={
                 <>
                   Upload the bill.
@@ -204,9 +135,9 @@ export default async function Home() {
                   We’ll handle the rest.
                 </>
               }
-              description="Upload a medical bill and bank details. The app checks eligibility, sends the reimbursement by ACH, and confirms it by email—payment lands in 1–2 business days."
-              meta="AI · Automation · Payments"
-              tone="yellow"
+              description={claims.description}
+              meta={claims.meta}
+              tone={claims.tone}
             >
               <ClaimsVisual />
             </ProjectShowcase>
@@ -230,6 +161,12 @@ export default async function Home() {
             </ProjectShowcase>
             */}
           </div>
+          <div className="work-ask-cta">
+            <p>You’ve seen the work. Ask for the story.</p>
+            <AskAnimeshLink className="ask-cta-button ask-cta-dark">
+              <ChatBubble /> Ask about a project
+            </AskAnimeshLink>
+          </div>
         </div>
       </section>
 
@@ -248,70 +185,45 @@ export default async function Home() {
               Engineer on paper. <em>Problem solver</em> in practice.
             </h2>
             <div className="about-body">
-              <div className="about-passage">
-                <p>I’m at my best when the problem is messy.</p>
-                <p>
-                  Incomplete requirements. Bad documentation. Too many people
-                  involved. Nobody quite knows the answer. And somehow, it still
-                  needs to ship Friday.
-                </p>
-                <p className="about-beat">Good.</p>
-              </div>
-              <div className="about-passage">
-                <p>
-                  Give me half the context and I’ll find the other half. I’ll
-                  read the code, talk to the user, ask questions, and pull at
-                  threads until the problem makes sense.
-                </p>
-              </div>
-              <div className="about-passage">
-                <p>
-                  That mentality took me beyond engineering — into product,
-                  operations, customer experience, partnerships, and strategy.
-                </p>
-                <p>
-                  I kept picking up problems until my job title had to catch up.
-                </p>
-                <p>The titles changed.</p>
-                <p>The job didn’t.</p>
-                <p className="about-beat">
-                  <strong>Figure it out.</strong>
-                </p>
-              </div>
-              <div className="about-passage">
-                <p>Software just happens to be my favorite form of leverage.</p>
-                <p>
-                  If it’s repetitive, automate it. If the process is broken,
-                  rebuild it. If everyone’s solving the symptom, find the actual
-                  problem.
-                </p>
-                <p>And if nobody quite knows how to do that yet?</p>
-                <p className="about-beat">
-                  <strong>Now you have my attention.</strong>
-                </p>
-              </div>
+              {profile.biography.map(({ paragraphs, beat, strongBeat }) => (
+                <div className="about-passage" key={paragraphs[0]}>
+                  {paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                  {beat ? (
+                    <p className="about-beat">
+                      {strongBeat ? <strong>{beat}</strong> : beat}
+                    </p>
+                  ) : null}
+                </div>
+              ))}
             </div>
-            <a
-              className="about-resume-link"
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View résumé <span>PDF</span> <ArrowUpRight />
-            </a>
+            <div className="about-actions">
+              <AskAnimeshLink className="about-ask-link ask-cta-button">
+                <ChatBubble /> Know more about me
+              </AskAnimeshLink>
+              <a
+                className="about-resume-link"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View résumé <span>PDF</span> <ArrowUpRight />
+              </a>
+            </div>
           </div>
           <aside className="about-side">
             <div>
               <span>BASED IN</span>
-              <strong>India ↗</strong>
+              <strong>{profile.location} ↗</strong>
             </div>
             <div>
               <span>WORKS ACROSS</span>
-              <strong>Engineering, Product, Operations</strong>
+              <strong>{profile.worksAcross.join(", ")}</strong>
             </div>
             <div>
               <span>GOOD AT</span>
-              <strong>Ambiguity, Automation, Getting Things Shipped</strong>
+              <strong>{profile.strengths.join(", ")}</strong>
             </div>
           </aside>
         </div>
@@ -363,18 +275,12 @@ export default async function Home() {
             </h2>
           </div>
           <ul>
-            <li>
-              <span>01</span>
-              <strong>Automating work that has no business being manual</strong>
-            </li>
-            <li>
-              <span>02</span>
-              <strong>AI that works outside the demo</strong>
-            </li>
-            <li>
-              <span>03</span>
-              <strong>VisaFile — scratching another itch</strong>
-            </li>
+            {profile.current.map((item, index) => (
+              <li key={item}>
+                <span>0{index + 1}</span>
+                <strong>{item}</strong>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -392,12 +298,12 @@ export default async function Home() {
             aside="Things I’ve learned from building software, breaking software, fixing operations, talking to users, and occasionally doing things the hard way."
           />
           <div className="notes-list">
-            {notes.map(([title, description, time], index) => (
+            {notes.map(({ title, description, readingTime }, index) => (
               <a className="note-row" href="#contact" key={title}>
                 <span className="note-index">0{index + 1}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <span className="note-time">{time} read</span>
+                <span className="note-time">{readingTime} read</span>
                 <span className="note-arrow">
                   <ArrowUpRight />
                 </span>
@@ -422,37 +328,44 @@ export default async function Home() {
               not sure how to solve it.
             </em>
           </h2>
-          <a
-            className="contact-button"
-            href="mailto:hello.animeshsharma@gmail.com"
-          >
-            hello.animeshsharma@gmail.com <ArrowUpRight />
+          <a className="contact-button" href={`mailto:${profile.email}`}>
+            {profile.email} <ArrowUpRight />
           </a>
+          <div className="footer-ask-cta">
+            <p>Still have questions?</p>
+            <AskAnimeshLink className="ask-cta-button ask-cta-light">
+              <ChatBubble /> Ask Animesh
+            </AskAnimeshLink>
+          </div>
           <div className="footer-bottom">
-            <span>© {new Date().getFullYear()} Animesh</span>
+            <span>© {new Date().getFullYear()} Animesh Sharma</span>
             <div>
               <a
-                href="https://www.linkedin.com/in/animeshsharma42"
+                href={profile.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 LinkedIn
               </a>
               <a
-                href="https://github.com/animesh-algorithm"
+                href={profile.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 GitHub
               </a>
               <a
-                href="https://x.com/animesh_algo"
+                href={profile.links.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 X / Twitter
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a
+                href={profile.links.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Résumé
               </a>
             </div>

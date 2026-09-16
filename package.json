@@ -10,12 +10,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval": "vitest run tests/chat-evals.test.ts",
+    "knowledge:generate": "tsx scripts/knowledge-generate.ts",
+    "knowledge:check": "tsx scripts/knowledge-check.ts",
+    "knowledge:sync": "tsx --env-file=.env scripts/knowledge-sync.ts"
   },
   "dependencies": {
+    "@upstash/redis": "^1.38.4",
     "next": "16.3.5",
+    "openai": "^7.15.0",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/node": "22.19.1",
@@ -23,6 +32,8 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.10",
-    "typescript": "5.9.3"
+    "tsx": "^4.23.13",
+    "typescript": "5.9.3",
+    "vitest": "^5.0.1"
   }
 }

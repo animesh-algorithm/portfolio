@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "./icons";
+import { ArrowUpRight, ChatBubble } from "./icons";
+import { AskAnimeshLink } from "./ask-animesh";
 
 const navItems = [
   { href: "#work", label: "Work" },
@@ -20,9 +21,14 @@ export function SiteHeader() {
           ))}
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé</a>
         </nav>
-        <a className="header-contact" href="#contact">
-          Say hello <ArrowUpRight />
-        </a>
+        <div className="header-actions">
+          <AskAnimeshLink className="header-ask">
+            <ChatBubble /> Ask Animesh
+          </AskAnimeshLink>
+          <a className="header-contact" href="#contact">
+            Say hello <ArrowUpRight />
+          </a>
+        </div>
       </div>
     </header>
   );

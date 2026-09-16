@@ -40,3 +40,23 @@ export function Asterisk({ className }: IconProps) {
     </svg>
   );
 }
+
+export function ChatBubble({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6.25 18.25 3.5 20l.72-3.42A8.25 8.25 0 1 1 6.25 18.25Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 11.75h.01M12 11.75h.01M16 11.75h.01"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
